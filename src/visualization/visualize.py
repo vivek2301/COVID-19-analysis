@@ -191,6 +191,7 @@ def update_sir(country):
 
 def update_data():
     # Pull and load the latest data
+    # First git clone needed for Johns Hopkins data - https://github.com/CSSEGISandData/COVID-19.git
     get_johns_hopkins()
     store_relational_JH_data()
     build_JH_features()
