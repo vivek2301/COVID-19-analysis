@@ -18,7 +18,6 @@ import plotly.graph_objects as go
 
 import os
 
-print(os.getcwd())
 df_input_large=pd.read_csv('../../data/processed/COVID_final_set.csv',sep=';')
 
 
@@ -190,10 +189,12 @@ def update_sir(country):
         )
     }
 
-if __name__ == '__main__':
+def update_data():
     # Pull and load the latest data
     get_johns_hopkins()
     store_relational_JH_data()
     build_JH_features()
 
+if __name__ == '__main__':
+    #update_data()
     app.run_server(debug=True, use_reloader=False)
