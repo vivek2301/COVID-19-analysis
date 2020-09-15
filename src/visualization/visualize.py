@@ -81,7 +81,7 @@ app.layout = html.Div([
             dcc.Dropdown(
                 id='country_drop_down',
                 options=[ {'label': each,'value':each} for each in df_input_large['country'].unique()],
-                value='Germany', # Pre-selected country
+                value='US', # Pre-selected country
                 multi=False
             ),
 
@@ -151,7 +151,7 @@ def update_sir(country):
     df_plot=df_input_large[df_input_large['country']==country]
     df_plot=df_plot[['state','country','confirmed','date']].groupby(['country','date']).agg(np.sum).reset_index()
     df_plot.sort_values('date',ascending=True).head()
-    df_plot = df_plot.confirmed[35:]
+    df_plot = df_plot.confirmed[60:]
 
     t, fitted = sir_modelling(df_plot)
 
